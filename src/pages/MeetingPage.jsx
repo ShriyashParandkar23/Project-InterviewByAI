@@ -75,6 +75,8 @@ export default function MeetingPage() {
   };
 
   useEffect(() => {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+
 
       socket.on('ai-audio-data', ({ audio }) => {
         console.log('got audio')
