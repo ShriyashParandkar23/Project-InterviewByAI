@@ -160,6 +160,7 @@ useEffect(() => {
   }
   if (isListening && !isAISpeaking) {
     SpeechRecognition.startListening({ continuous: true, interimResults: true });
+    console.log('listening started please speak');
   } else {
     SpeechRecognition.stopListening();
     clearTimeout(pauseTimer.current);
