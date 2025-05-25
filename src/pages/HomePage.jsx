@@ -1,5 +1,5 @@
 import React from "react";
-import FeatureCard from "../components/keyFeatures/featureCard";
+import FeatureCard from "../components/keyFeatures/FeatureCard";
 import PricingCard from "../components/pricingCard/PricingCard";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
