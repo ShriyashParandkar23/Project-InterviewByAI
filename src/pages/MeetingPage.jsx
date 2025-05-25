@@ -75,7 +75,13 @@ export default function MeetingPage() {
   };
 
   useEffect(() => {
-        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+                console.log('Mic access granted');
+        }).catch((err) => {
+            console.error('Mic access denied:', err);
+            alert('Please allow microphone access to use the interview features.');
+        }
+    );
 
 
       socket.on('ai-audio-data', ({ audio }) => {
@@ -148,8 +154,10 @@ export default function MeetingPage() {
 
   // Effect to start/stop listening based on isListening state
 useEffect(() => {
-  if (!SpeechRecognition.browserSupportsSpeechRecognition()) return;
-
+  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+    alert('Browser does not support speech recognition.');
+    return;
+  }
   if (isListening && !isAISpeaking) {
     SpeechRecognition.startListening({ continuous: true, interimResults: true });
   } else {
