@@ -5,7 +5,8 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import CustomWebcam from '../components/Webcam';
 
 
-const socket = io("http://localhost:8000");
+// const socket = io("http://localhost:8000");
+const socket = io("https://project-interviewbyai.onrender.com");
 
 export default function MeetingPage() {
   const [transcripts, setTranscripts] = useState([]);
